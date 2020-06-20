@@ -1,2 +1,3 @@
-# web2-2020
-the project for web2 - hcmus - 17ck1 
+# Strapi application
+
+A quick description of your strapi application
