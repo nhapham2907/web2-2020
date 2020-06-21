@@ -1,0 +1,288 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : bankingDB
+ Source Server Type    : PostgreSQL
+ Source Server Version : 120003
+ Source Host           : localhost:5432
+ Source Catalog        : postgres
+ Source Schema         : public
+
+ Target Server Type    : PostgreSQL
+ Target Server Version : 120003
+ File Encoding         : 65001
+
+ Date: 21/06/2020 01:05:34
+*/
+
+
+-- ----------------------------
+-- Sequence structure for currency_units_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."currency_units_id_seq";
+CREATE SEQUENCE "public"."currency_units_id_seq" 
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Table structure for admin_accounts
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."admin_accounts";
+CREATE TABLE "public"."admin_accounts" (
+  "id" uuid NOT NULL,
+  "user_name" varchar(255) COLLATE "pg_catalog"."default",
+  "password" varchar(255) COLLATE "pg_catalog"."default"
+)
+;
+
+-- ----------------------------
+-- Table structure for currency_units
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."currency_units";
+CREATE TABLE "public"."currency_units" (
+  "id" int4 NOT NULL DEFAULT nextval('currency_units_id_seq'::regclass),
+  "unit" varchar(255) COLLATE "pg_catalog"."default"
+)
+;
+
+-- ----------------------------
+-- Table structure for customer_accounts
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."customer_accounts";
+CREATE TABLE "public"."customer_accounts" (
+  "id" uuid NOT NULL,
+  "user_name" varchar(255) COLLATE "pg_catalog"."default",
+  "password" varchar(255) COLLATE "pg_catalog"."default",
+  "created_date" date,
+  "closed_date" date,
+  "status" uuid,
+  "update_date" date
+)
+;
+
+-- ----------------------------
+-- Table structure for customer_address
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."customer_address";
+CREATE TABLE "public"."customer_address" (
+  "id" uuid NOT NULL,
+  "customer_id" uuid,
+  "city" varchar(255) COLLATE "pg_catalog"."default",
+  "address" varchar(255) COLLATE "pg_catalog"."default"
+)
+;
+
+-- ----------------------------
+-- Table structure for customer_identification
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."customer_identification";
+CREATE TABLE "public"."customer_identification" (
+  "id" uuid,
+  "customer_id" uuid,
+  "identification_type" uuid,
+  "identification_detail" uuid
+)
+;
+
+-- ----------------------------
+-- Table structure for customer_infor
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."customer_infor";
+CREATE TABLE "public"."customer_infor" (
+  "id" uuid NOT NULL,
+  "first_name" varchar(255) COLLATE "pg_catalog"."default",
+  "last_name" varchar(255) COLLATE "pg_catalog"."default",
+  "email" varchar(255) COLLATE "pg_catalog"."default",
+  "phone_number" varchar(255) COLLATE "pg_catalog"."default",
+  "address_id" uuid,
+  "identification_id" uuid
+)
+;
+
+-- ----------------------------
+-- Table structure for identification_type
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."identification_type";
+CREATE TABLE "public"."identification_type" (
+  "id" uuid,
+  "type" varchar(255) COLLATE "pg_catalog"."default"
+)
+;
+
+-- ----------------------------
+-- Table structure for identity_card
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."identity_card";
+CREATE TABLE "public"."identity_card" (
+  "id" uuid,
+  "full_name" varchar(255) COLLATE "pg_catalog"."default",
+  "date_of_issue" date,
+  "code" varchar(255) COLLATE "pg_catalog"."default",
+  "image1" text COLLATE "pg_catalog"."default",
+  "image2" text COLLATE "pg_catalog"."default"
+)
+;
+
+-- ----------------------------
+-- Table structure for interest_rate
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."interest_rate";
+CREATE TABLE "public"."interest_rate" (
+  "id" uuid NOT NULL,
+  "period" int4,
+  "interst_rate" float4
+)
+;
+
+-- ----------------------------
+-- Table structure for saving_account_infor
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."saving_account_infor";
+CREATE TABLE "public"."saving_account_infor" (
+  "id" uuid NOT NULL,
+  "account_id" uuid,
+  "interest_rate" uuid,
+  "status" uuid,
+  "created_date" date,
+  "closed_date" date,
+  "curency_unit_id" uuid,
+  "available_balance" float8
+)
+;
+
+-- ----------------------------
+-- Table structure for saving_account_logs
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."saving_account_logs";
+CREATE TABLE "public"."saving_account_logs" (
+  "id" uuid NOT NULL,
+  "saving_account_id" uuid,
+  "transaction_type" uuid,
+  "transaction_log_detail" uuid
+)
+;
+
+-- ----------------------------
+-- Table structure for spend_account_infor
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."spend_account_infor";
+CREATE TABLE "public"."spend_account_infor" (
+  "id" uuid NOT NULL,
+  "account_id" uuid,
+  "currency_unit_id" uuid,
+  "available_balance" float8,
+  "created_date" date,
+  "closed_date" date,
+  "status" uuid
+)
+;
+
+-- ----------------------------
+-- Table structure for spend_account_logs
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."spend_account_logs";
+CREATE TABLE "public"."spend_account_logs" (
+  "id" uuid NOT NULL,
+  "spend_account_id" uuid,
+  "transaction_type" uuid,
+  "transaction_logs_detail" uuid
+)
+;
+
+-- ----------------------------
+-- Table structure for status_type
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."status_type";
+CREATE TABLE "public"."status_type" (
+  "id" uuid NOT NULL,
+  "type" varchar(255) COLLATE "pg_catalog"."default"
+)
+;
+
+-- ----------------------------
+-- Table structure for transfer_logs
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."transfer_logs";
+CREATE TABLE "public"."transfer_logs" (
+  "id" uuid NOT NULL,
+  "account_id" uuid,
+  "status" uuid,
+  "transfer_date" date,
+  "amount" float8,
+  "beneficiary_account" varchar(255) COLLATE "pg_catalog"."default",
+  "remark" varchar(255) COLLATE "pg_catalog"."default",
+  "beneficiary_banking" varchar(255) COLLATE "pg_catalog"."default",
+  "fee" float4,
+  "fee_type" uuid
+)
+;
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."currency_units_id_seq"
+OWNED BY "public"."currency_units"."id";
+SELECT setval('"public"."currency_units_id_seq"', 2, false);
+
+-- ----------------------------
+-- Primary Key structure for table admin_accounts
+-- ----------------------------
+ALTER TABLE "public"."admin_accounts" ADD CONSTRAINT "admin_accounts_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Primary Key structure for table currency_units
+-- ----------------------------
+ALTER TABLE "public"."currency_units" ADD CONSTRAINT "currency_units_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Primary Key structure for table customer_accounts
+-- ----------------------------
+ALTER TABLE "public"."customer_accounts" ADD CONSTRAINT "customer_accounts_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Primary Key structure for table customer_address
+-- ----------------------------
+ALTER TABLE "public"."customer_address" ADD CONSTRAINT "customer_address_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Primary Key structure for table customer_infor
+-- ----------------------------
+ALTER TABLE "public"."customer_infor" ADD CONSTRAINT "customer_infor_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Primary Key structure for table interest_rate
+-- ----------------------------
+ALTER TABLE "public"."interest_rate" ADD CONSTRAINT "interest_rate_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Primary Key structure for table saving_account_infor
+-- ----------------------------
+ALTER TABLE "public"."saving_account_infor" ADD CONSTRAINT "saving_account_infor_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Primary Key structure for table saving_account_logs
+-- ----------------------------
+ALTER TABLE "public"."saving_account_logs" ADD CONSTRAINT "saving_account_logs_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Primary Key structure for table spend_account_infor
+-- ----------------------------
+ALTER TABLE "public"."spend_account_infor" ADD CONSTRAINT "spend_account_infor_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Primary Key structure for table spend_account_logs
+-- ----------------------------
+ALTER TABLE "public"."spend_account_logs" ADD CONSTRAINT "spend_account_logs_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Primary Key structure for table status_type
+-- ----------------------------
+ALTER TABLE "public"."status_type" ADD CONSTRAINT "status_type_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Primary Key structure for table transfer_logs
+-- ----------------------------
+ALTER TABLE "public"."transfer_logs" ADD CONSTRAINT "transfer_logs_pkey" PRIMARY KEY ("id");
