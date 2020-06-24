@@ -12,7 +12,7 @@
  Target Server Version : 120003
  File Encoding         : 65001
 
- Date: 24/06/2020 23:52:36
+ Date: 25/06/2020 00:01:48
 */
 
 
@@ -288,7 +288,8 @@ CREATE TABLE "public"."account_action_logs" (
   "id" int4 NOT NULL DEFAULT nextval('account_action_log_details_id_seq'::regclass),
   "action" varchar(255) COLLATE "pg_catalog"."default",
   "content" varchar(255) COLLATE "pg_catalog"."default",
-  "status" int4
+  "status" int4,
+  "account_id" int4
 )
 ;
 
