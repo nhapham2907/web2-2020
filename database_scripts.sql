@@ -1,18 +1,18 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : banking
+ Source Server         : localhost_5432
  Source Server Type    : PostgreSQL
- Source Server Version : 120003
+ Source Server Version : 120001
  Source Host           : localhost:5432
- Source Catalog        : postgres
+ Source Catalog        : Yellow
  Source Schema         : public
 
  Target Server Type    : PostgreSQL
- Target Server Version : 120003
+ Target Server Version : 120001
  File Encoding         : 65001
 
- Date: 25/06/2020 00:01:48
+ Date: 25/06/2020 14:53:27
 */
 
 
@@ -26,6 +26,7 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
+ALTER SEQUENCE "public"."account_action_log_details_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for admin_accounts_id_seq1
@@ -37,6 +38,7 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
+ALTER SEQUENCE "public"."admin_accounts_id_seq1" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for banking_id_seq
@@ -48,17 +50,7 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-
--- ----------------------------
--- Sequence structure for core_store_id_seq
--- ----------------------------
-DROP SEQUENCE IF EXISTS "public"."core_store_id_seq";
-CREATE SEQUENCE "public"."core_store_id_seq" 
-INCREMENT 1
-MINVALUE  1
-MAXVALUE 2147483647
-START 1
-CACHE 1;
+ALTER SEQUENCE "public"."banking_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for currency_units_id_seq
@@ -70,6 +62,7 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
+ALTER SEQUENCE "public"."currency_units_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for customer_accounts_id_seq
@@ -81,6 +74,7 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
+ALTER SEQUENCE "public"."customer_accounts_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for customer_infor_id_seq
@@ -92,6 +86,7 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
+ALTER SEQUENCE "public"."customer_infor_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for identification_type_id_seq
@@ -103,6 +98,7 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
+ALTER SEQUENCE "public"."identification_type_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for identity_card_id_seq
@@ -114,6 +110,7 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
+ALTER SEQUENCE "public"."identity_card_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for interest_rate_id_seq
@@ -125,6 +122,7 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
+ALTER SEQUENCE "public"."interest_rate_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for saving_account_infor_id_seq
@@ -136,6 +134,7 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
+ALTER SEQUENCE "public"."saving_account_infor_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for spend_account_infor_id_seq
@@ -147,6 +146,7 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
+ALTER SEQUENCE "public"."spend_account_infor_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for spend_account_logs_id_seq
@@ -158,6 +158,7 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
+ALTER SEQUENCE "public"."spend_account_logs_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for spend_account_type_id_seq
@@ -169,6 +170,7 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
+ALTER SEQUENCE "public"."spend_account_type_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for status_type_id_seq
@@ -180,28 +182,7 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-
--- ----------------------------
--- Sequence structure for strapi_administrator_id_seq
--- ----------------------------
-DROP SEQUENCE IF EXISTS "public"."strapi_administrator_id_seq";
-CREATE SEQUENCE "public"."strapi_administrator_id_seq" 
-INCREMENT 1
-MINVALUE  1
-MAXVALUE 2147483647
-START 1
-CACHE 1;
-
--- ----------------------------
--- Sequence structure for strapi_webhooks_id_seq
--- ----------------------------
-DROP SEQUENCE IF EXISTS "public"."strapi_webhooks_id_seq";
-CREATE SEQUENCE "public"."strapi_webhooks_id_seq" 
-INCREMENT 1
-MINVALUE  1
-MAXVALUE 2147483647
-START 1
-CACHE 1;
+ALTER SEQUENCE "public"."status_type_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for transaction_types_id_seq
@@ -213,6 +194,7 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
+ALTER SEQUENCE "public"."transaction_types_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for transfer_logs_id_seq
@@ -224,67 +206,13 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
+ALTER SEQUENCE "public"."transfer_logs_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
--- Sequence structure for upload_file_id_seq
+-- Table structure for account_log
 -- ----------------------------
-DROP SEQUENCE IF EXISTS "public"."upload_file_id_seq";
-CREATE SEQUENCE "public"."upload_file_id_seq" 
-INCREMENT 1
-MINVALUE  1
-MAXVALUE 2147483647
-START 1
-CACHE 1;
-
--- ----------------------------
--- Sequence structure for upload_file_morph_id_seq
--- ----------------------------
-DROP SEQUENCE IF EXISTS "public"."upload_file_morph_id_seq";
-CREATE SEQUENCE "public"."upload_file_morph_id_seq" 
-INCREMENT 1
-MINVALUE  1
-MAXVALUE 2147483647
-START 1
-CACHE 1;
-
--- ----------------------------
--- Sequence structure for users-permissions_permission_id_seq
--- ----------------------------
-DROP SEQUENCE IF EXISTS "public"."users-permissions_permission_id_seq";
-CREATE SEQUENCE "public"."users-permissions_permission_id_seq" 
-INCREMENT 1
-MINVALUE  1
-MAXVALUE 2147483647
-START 1
-CACHE 1;
-
--- ----------------------------
--- Sequence structure for users-permissions_role_id_seq
--- ----------------------------
-DROP SEQUENCE IF EXISTS "public"."users-permissions_role_id_seq";
-CREATE SEQUENCE "public"."users-permissions_role_id_seq" 
-INCREMENT 1
-MINVALUE  1
-MAXVALUE 2147483647
-START 1
-CACHE 1;
-
--- ----------------------------
--- Sequence structure for users-permissions_user_id_seq
--- ----------------------------
-DROP SEQUENCE IF EXISTS "public"."users-permissions_user_id_seq";
-CREATE SEQUENCE "public"."users-permissions_user_id_seq" 
-INCREMENT 1
-MINVALUE  1
-MAXVALUE 2147483647
-START 1
-CACHE 1;
-
--- ----------------------------
--- Table structure for account_action_logs
--- ----------------------------
-DROP TABLE IF EXISTS "public"."account_action_logs";
-CREATE TABLE "public"."account_action_logs" (
+DROP TABLE IF EXISTS "public"."account_log";
+CREATE TABLE "public"."account_log" (
   "id" int4 NOT NULL DEFAULT nextval('account_action_log_details_id_seq'::regclass),
   "action" varchar(255) COLLATE "pg_catalog"."default",
   "content" varchar(255) COLLATE "pg_catalog"."default",
@@ -292,12 +220,13 @@ CREATE TABLE "public"."account_action_logs" (
   "account_id" int4
 )
 ;
+ALTER TABLE "public"."account_log" OWNER TO "postgres";
 
 -- ----------------------------
--- Table structure for admin_accounts
+-- Table structure for admin
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."admin_accounts";
-CREATE TABLE "public"."admin_accounts" (
+DROP TABLE IF EXISTS "public"."admin";
+CREATE TABLE "public"."admin" (
   "user_name" varchar(255) COLLATE "pg_catalog"."default",
   "password" varchar(255) COLLATE "pg_catalog"."default",
   "id" int4 NOT NULL DEFAULT nextval('admin_accounts_id_seq1'::regclass),
@@ -305,46 +234,35 @@ CREATE TABLE "public"."admin_accounts" (
   "updated_at" timestamptz(6)
 )
 ;
+ALTER TABLE "public"."admin" OWNER TO "postgres";
 
 -- ----------------------------
--- Table structure for banking
+-- Table structure for bank
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."banking";
-CREATE TABLE "public"."banking" (
+DROP TABLE IF EXISTS "public"."bank";
+CREATE TABLE "public"."bank" (
   "name" varchar(255) COLLATE "pg_catalog"."default",
   "id" int4 NOT NULL DEFAULT nextval('banking_id_seq'::regclass)
 )
 ;
+ALTER TABLE "public"."bank" OWNER TO "postgres";
 
 -- ----------------------------
--- Table structure for core_store
+-- Table structure for currency_unit
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."core_store";
-CREATE TABLE "public"."core_store" (
-  "id" int4 NOT NULL DEFAULT nextval('core_store_id_seq'::regclass),
-  "key" varchar(255) COLLATE "pg_catalog"."default",
-  "value" text COLLATE "pg_catalog"."default",
-  "type" varchar(255) COLLATE "pg_catalog"."default",
-  "environment" varchar(255) COLLATE "pg_catalog"."default",
-  "tag" varchar(255) COLLATE "pg_catalog"."default"
-)
-;
-
--- ----------------------------
--- Table structure for currency_units
--- ----------------------------
-DROP TABLE IF EXISTS "public"."currency_units";
-CREATE TABLE "public"."currency_units" (
+DROP TABLE IF EXISTS "public"."currency_unit";
+CREATE TABLE "public"."currency_unit" (
   "unit" varchar(255) COLLATE "pg_catalog"."default",
   "id" int4 NOT NULL DEFAULT nextval('currency_units_id_seq'::regclass)
 )
 ;
+ALTER TABLE "public"."currency_unit" OWNER TO "postgres";
 
 -- ----------------------------
--- Table structure for customer_accounts
+-- Table structure for customer
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."customer_accounts";
-CREATE TABLE "public"."customer_accounts" (
+DROP TABLE IF EXISTS "public"."customer";
+CREATE TABLE "public"."customer" (
   "user_name" varchar(255) COLLATE "pg_catalog"."default",
   "password" varchar(255) COLLATE "pg_catalog"."default",
   "closed_date" date,
@@ -354,24 +272,13 @@ CREATE TABLE "public"."customer_accounts" (
   "id" int4 NOT NULL DEFAULT nextval('customer_accounts_id_seq'::regclass)
 )
 ;
+ALTER TABLE "public"."customer" OWNER TO "postgres";
 
 -- ----------------------------
--- Table structure for customer_identification
+-- Table structure for customer_info
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."customer_identification";
-CREATE TABLE "public"."customer_identification" (
-  "id" int4 NOT NULL,
-  "customer_id" int4,
-  "identification_type" int4,
-  "identification_detail" int4
-)
-;
-
--- ----------------------------
--- Table structure for customer_infor
--- ----------------------------
-DROP TABLE IF EXISTS "public"."customer_infor";
-CREATE TABLE "public"."customer_infor" (
+DROP TABLE IF EXISTS "public"."customer_info";
+CREATE TABLE "public"."customer_info" (
   "first_name" varchar(255) COLLATE "pg_catalog"."default",
   "last_name" varchar(255) COLLATE "pg_catalog"."default",
   "email" varchar(255) COLLATE "pg_catalog"."default",
@@ -382,21 +289,20 @@ CREATE TABLE "public"."customer_infor" (
   "date_of_birth" date
 )
 ;
+ALTER TABLE "public"."customer_info" OWNER TO "postgres";
 
 -- ----------------------------
--- Table structure for identification_card
+-- Table structure for identification
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."identification_card";
-CREATE TABLE "public"."identification_card" (
-  "full_name" varchar(255) COLLATE "pg_catalog"."default",
-  "date_of_issue" date,
-  "code" varchar(255) COLLATE "pg_catalog"."default",
-  "image1" text COLLATE "pg_catalog"."default",
-  "image2" text COLLATE "pg_catalog"."default",
-  "id" int4 NOT NULL DEFAULT nextval('identity_card_id_seq'::regclass),
-  "type" int4
+DROP TABLE IF EXISTS "public"."identification";
+CREATE TABLE "public"."identification" (
+  "id" int4 NOT NULL,
+  "customer_id" int4,
+  "identification_type" int4,
+  "identification_detail" int4
 )
 ;
+ALTER TABLE "public"."identification" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for identification_type
@@ -407,6 +313,23 @@ CREATE TABLE "public"."identification_type" (
   "id" int4 NOT NULL DEFAULT nextval('identification_type_id_seq'::regclass)
 )
 ;
+ALTER TABLE "public"."identification_type" OWNER TO "postgres";
+
+-- ----------------------------
+-- Table structure for identity_card
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."identity_card";
+CREATE TABLE "public"."identity_card" (
+  "full_name" varchar(255) COLLATE "pg_catalog"."default",
+  "date_of_issue" date,
+  "code" varchar(255) COLLATE "pg_catalog"."default",
+  "image1" text COLLATE "pg_catalog"."default",
+  "image2" text COLLATE "pg_catalog"."default",
+  "id" int4 NOT NULL DEFAULT nextval('identity_card_id_seq'::regclass),
+  "type" int4
+)
+;
+ALTER TABLE "public"."identity_card" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for interest_rate
@@ -418,28 +341,16 @@ CREATE TABLE "public"."interest_rate" (
   "id" int4 NOT NULL DEFAULT nextval('interest_rate_id_seq'::regclass)
 )
 ;
+ALTER TABLE "public"."interest_rate" OWNER TO "postgres";
 
 -- ----------------------------
--- Table structure for saving_account_infor
+-- Table structure for spend_account
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."saving_account_infor";
-CREATE TABLE "public"."saving_account_infor" (
-  "interest_rate_id" int4,
-  "id" int4 NOT NULL DEFAULT nextval('saving_account_infor_id_seq'::regclass),
-  "spend_account_id" int4,
-  "maturity_date" date,
-  "interest_rate" float4
-)
-;
-
--- ----------------------------
--- Table structure for spend_account_infor
--- ----------------------------
-DROP TABLE IF EXISTS "public"."spend_account_infor";
-CREATE TABLE "public"."spend_account_infor" (
+DROP TABLE IF EXISTS "public"."spend_account";
+CREATE TABLE "public"."spend_account" (
   "account_id" int4,
   "currency_unit_id" int4,
-  "available_balance" float8,
+  "balance" float8,
   "created_date" date,
   "closed_date" date,
   "status" int4,
@@ -448,6 +359,7 @@ CREATE TABLE "public"."spend_account_infor" (
   "card_number" varchar(32) COLLATE "pg_catalog"."default"
 )
 ;
+ALTER TABLE "public"."spend_account" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for spend_account_type
@@ -456,10 +368,11 @@ DROP TABLE IF EXISTS "public"."spend_account_type";
 CREATE TABLE "public"."spend_account_type" (
   "id" int4 NOT NULL DEFAULT nextval('spend_account_type_id_seq'::regclass),
   "type" varchar(255) COLLATE "pg_catalog"."default",
-  "total_amount_limited_per_transaction" float4,
-  "total_amount_limited_per_day" varchar(255) COLLATE "pg_catalog"."default"
+  "limited_amount_per_transaction" float4,
+  "limited_amount_per_day" float4
 )
 ;
+ALTER TABLE "public"."spend_account_type" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for status_type
@@ -470,40 +383,27 @@ CREATE TABLE "public"."status_type" (
   "id" int4 NOT NULL DEFAULT nextval('status_type_id_seq'::regclass)
 )
 ;
+ALTER TABLE "public"."status_type" OWNER TO "postgres";
 
 -- ----------------------------
--- Table structure for strapi_administrator
+-- Table structure for term_deposit
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."strapi_administrator";
-CREATE TABLE "public"."strapi_administrator" (
-  "id" int4 NOT NULL DEFAULT nextval('strapi_administrator_id_seq'::regclass),
-  "username" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "email" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "password" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "resetPasswordToken" varchar(255) COLLATE "pg_catalog"."default",
-  "blocked" bool
+DROP TABLE IF EXISTS "public"."term_deposit";
+CREATE TABLE "public"."term_deposit" (
+  "interest_rate_id" int4,
+  "id" int4 NOT NULL DEFAULT nextval('saving_account_infor_id_seq'::regclass),
+  "spend_account_id" int4,
+  "maturity_date" date,
+  "interest_money" float4
 )
 ;
+ALTER TABLE "public"."term_deposit" OWNER TO "postgres";
 
 -- ----------------------------
--- Table structure for strapi_webhooks
+-- Table structure for transaction_log
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."strapi_webhooks";
-CREATE TABLE "public"."strapi_webhooks" (
-  "id" int4 NOT NULL DEFAULT nextval('strapi_webhooks_id_seq'::regclass),
-  "name" varchar(255) COLLATE "pg_catalog"."default",
-  "url" text COLLATE "pg_catalog"."default",
-  "headers" jsonb,
-  "events" jsonb,
-  "enabled" bool
-)
-;
-
--- ----------------------------
--- Table structure for transaction_logs
--- ----------------------------
-DROP TABLE IF EXISTS "public"."transaction_logs";
-CREATE TABLE "public"."transaction_logs" (
+DROP TABLE IF EXISTS "public"."transaction_log";
+CREATE TABLE "public"."transaction_log" (
   "account_id" int4,
   "transaction_type" int4,
   "id" int4 NOT NULL DEFAULT nextval('spend_account_logs_id_seq'::regclass),
@@ -511,235 +411,179 @@ CREATE TABLE "public"."transaction_logs" (
   "status" int4
 )
 ;
+ALTER TABLE "public"."transaction_log" OWNER TO "postgres";
 
 -- ----------------------------
--- Table structure for transaction_types
+-- Table structure for transaction_type
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."transaction_types";
-CREATE TABLE "public"."transaction_types" (
+DROP TABLE IF EXISTS "public"."transaction_type";
+CREATE TABLE "public"."transaction_type" (
   "id" int4 NOT NULL DEFAULT nextval('transaction_types_id_seq'::regclass),
   "type" varchar(255) COLLATE "pg_catalog"."default"
 )
 ;
+ALTER TABLE "public"."transaction_type" OWNER TO "postgres";
 
 -- ----------------------------
--- Table structure for transfer_log_details
+-- Table structure for transfer_log
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."transfer_log_details";
-CREATE TABLE "public"."transfer_log_details" (
+DROP TABLE IF EXISTS "public"."transfer_log";
+CREATE TABLE "public"."transfer_log" (
   "transaction_log_id" int4,
   "beneficiary_account" varchar(255) COLLATE "pg_catalog"."default",
   "remark" varchar(255) COLLATE "pg_catalog"."default",
-  "beneficiary_banking" varchar(255) COLLATE "pg_catalog"."default",
+  "beneficiary_bank" varchar(255) COLLATE "pg_catalog"."default",
   "id" int4 NOT NULL DEFAULT nextval('transfer_logs_id_seq'::regclass)
 )
 ;
-
--- ----------------------------
--- Table structure for upload_file
--- ----------------------------
-DROP TABLE IF EXISTS "public"."upload_file";
-CREATE TABLE "public"."upload_file" (
-  "id" int4 NOT NULL DEFAULT nextval('upload_file_id_seq'::regclass),
-  "name" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "alternativeText" varchar(255) COLLATE "pg_catalog"."default",
-  "caption" varchar(255) COLLATE "pg_catalog"."default",
-  "width" int4,
-  "height" int4,
-  "formats" jsonb,
-  "hash" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "ext" varchar(255) COLLATE "pg_catalog"."default",
-  "mime" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "size" numeric(10,2) NOT NULL,
-  "url" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "previewUrl" varchar(255) COLLATE "pg_catalog"."default",
-  "provider" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "provider_metadata" jsonb,
-  "created_at" timestamptz(6) DEFAULT CURRENT_TIMESTAMP,
-  "updated_at" timestamptz(6) DEFAULT CURRENT_TIMESTAMP
-)
-;
-
--- ----------------------------
--- Table structure for upload_file_morph
--- ----------------------------
-DROP TABLE IF EXISTS "public"."upload_file_morph";
-CREATE TABLE "public"."upload_file_morph" (
-  "id" int4 NOT NULL DEFAULT nextval('upload_file_morph_id_seq'::regclass),
-  "upload_file_id" int4,
-  "related_id" int4,
-  "related_type" text COLLATE "pg_catalog"."default",
-  "field" text COLLATE "pg_catalog"."default",
-  "order" int4
-)
-;
-
--- ----------------------------
--- Table structure for users-permissions_permission
--- ----------------------------
-DROP TABLE IF EXISTS "public"."users-permissions_permission";
-CREATE TABLE "public"."users-permissions_permission" (
-  "id" int4 NOT NULL DEFAULT nextval('"users-permissions_permission_id_seq"'::regclass),
-  "type" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "controller" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "action" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "enabled" bool NOT NULL,
-  "policy" varchar(255) COLLATE "pg_catalog"."default",
-  "role" int4
-)
-;
-
--- ----------------------------
--- Table structure for users-permissions_role
--- ----------------------------
-DROP TABLE IF EXISTS "public"."users-permissions_role";
-CREATE TABLE "public"."users-permissions_role" (
-  "id" int4 NOT NULL DEFAULT nextval('"users-permissions_role_id_seq"'::regclass),
-  "name" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "description" varchar(255) COLLATE "pg_catalog"."default",
-  "type" varchar(255) COLLATE "pg_catalog"."default"
-)
-;
-
--- ----------------------------
--- Table structure for users-permissions_user
--- ----------------------------
-DROP TABLE IF EXISTS "public"."users-permissions_user";
-CREATE TABLE "public"."users-permissions_user" (
-  "id" int4 NOT NULL DEFAULT nextval('"users-permissions_user_id_seq"'::regclass),
-  "username" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "email" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "provider" varchar(255) COLLATE "pg_catalog"."default",
-  "password" varchar(255) COLLATE "pg_catalog"."default",
-  "resetPasswordToken" varchar(255) COLLATE "pg_catalog"."default",
-  "confirmed" bool,
-  "blocked" bool,
-  "role" int4,
-  "created_at" timestamptz(6) DEFAULT CURRENT_TIMESTAMP,
-  "updated_at" timestamptz(6) DEFAULT CURRENT_TIMESTAMP
-)
-;
+ALTER TABLE "public"."transfer_log" OWNER TO "postgres";
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."account_action_log_details_id_seq"
-OWNED BY "public"."account_action_logs"."id";
-SELECT setval('"public"."account_action_log_details_id_seq"', 2, false);
+OWNED BY "public"."account_log"."id";
+SELECT setval('"public"."account_action_log_details_id_seq"', 3, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
 ALTER SEQUENCE "public"."admin_accounts_id_seq1"
-OWNED BY "public"."admin_accounts"."id";
-SELECT setval('"public"."admin_accounts_id_seq1"', 2, true);
+OWNED BY "public"."admin"."id";
+SELECT setval('"public"."admin_accounts_id_seq1"', 3, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
 ALTER SEQUENCE "public"."banking_id_seq"
-OWNED BY "public"."banking"."id";
-SELECT setval('"public"."banking_id_seq"', 3, false);
-ALTER SEQUENCE "public"."core_store_id_seq"
-OWNED BY "public"."core_store"."id";
-SELECT setval('"public"."core_store_id_seq"', 45, true);
+OWNED BY "public"."bank"."id";
+SELECT setval('"public"."banking_id_seq"', 4, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
 ALTER SEQUENCE "public"."currency_units_id_seq"
-OWNED BY "public"."currency_units"."id";
-SELECT setval('"public"."currency_units_id_seq"', 2, false);
+OWNED BY "public"."currency_unit"."id";
+SELECT setval('"public"."currency_units_id_seq"', 3, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
 ALTER SEQUENCE "public"."customer_accounts_id_seq"
-OWNED BY "public"."customer_accounts"."id";
-SELECT setval('"public"."customer_accounts_id_seq"', 2, false);
+OWNED BY "public"."customer"."id";
+SELECT setval('"public"."customer_accounts_id_seq"', 3, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
 ALTER SEQUENCE "public"."customer_infor_id_seq"
-OWNED BY "public"."customer_infor"."id";
-SELECT setval('"public"."customer_infor_id_seq"', 3, false);
+OWNED BY "public"."customer_info"."id";
+SELECT setval('"public"."customer_infor_id_seq"', 4, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
 ALTER SEQUENCE "public"."identification_type_id_seq"
 OWNED BY "public"."identification_type"."id";
-SELECT setval('"public"."identification_type_id_seq"', 3, false);
+SELECT setval('"public"."identification_type_id_seq"', 4, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
 ALTER SEQUENCE "public"."identity_card_id_seq"
-OWNED BY "public"."identification_card"."id";
-SELECT setval('"public"."identity_card_id_seq"', 3, false);
+OWNED BY "public"."identity_card"."id";
+SELECT setval('"public"."identity_card_id_seq"', 4, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
 ALTER SEQUENCE "public"."interest_rate_id_seq"
 OWNED BY "public"."interest_rate"."id";
-SELECT setval('"public"."interest_rate_id_seq"', 3, false);
+SELECT setval('"public"."interest_rate_id_seq"', 4, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
 ALTER SEQUENCE "public"."saving_account_infor_id_seq"
-OWNED BY "public"."saving_account_infor"."id";
-SELECT setval('"public"."saving_account_infor_id_seq"', 3, false);
+OWNED BY "public"."term_deposit"."id";
+SELECT setval('"public"."saving_account_infor_id_seq"', 4, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
 ALTER SEQUENCE "public"."spend_account_infor_id_seq"
-OWNED BY "public"."spend_account_infor"."id";
-SELECT setval('"public"."spend_account_infor_id_seq"', 2, false);
+OWNED BY "public"."spend_account"."id";
+SELECT setval('"public"."spend_account_infor_id_seq"', 3, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
 ALTER SEQUENCE "public"."spend_account_logs_id_seq"
-OWNED BY "public"."transaction_logs"."id";
-SELECT setval('"public"."spend_account_logs_id_seq"', 2, false);
+OWNED BY "public"."transaction_log"."id";
+SELECT setval('"public"."spend_account_logs_id_seq"', 3, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
 ALTER SEQUENCE "public"."spend_account_type_id_seq"
 OWNED BY "public"."spend_account_type"."id";
-SELECT setval('"public"."spend_account_type_id_seq"', 2, false);
+SELECT setval('"public"."spend_account_type_id_seq"', 3, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
 ALTER SEQUENCE "public"."status_type_id_seq"
 OWNED BY "public"."status_type"."id";
-SELECT setval('"public"."status_type_id_seq"', 2, false);
-ALTER SEQUENCE "public"."strapi_administrator_id_seq"
-OWNED BY "public"."strapi_administrator"."id";
-SELECT setval('"public"."strapi_administrator_id_seq"', 4, true);
-ALTER SEQUENCE "public"."strapi_webhooks_id_seq"
-OWNED BY "public"."strapi_webhooks"."id";
-SELECT setval('"public"."strapi_webhooks_id_seq"', 3, false);
+SELECT setval('"public"."status_type_id_seq"', 3, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
 ALTER SEQUENCE "public"."transaction_types_id_seq"
-OWNED BY "public"."transaction_types"."id";
-SELECT setval('"public"."transaction_types_id_seq"', 2, false);
+OWNED BY "public"."transaction_type"."id";
+SELECT setval('"public"."transaction_types_id_seq"', 3, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
 ALTER SEQUENCE "public"."transfer_logs_id_seq"
-OWNED BY "public"."transfer_log_details"."id";
-SELECT setval('"public"."transfer_logs_id_seq"', 2, false);
-ALTER SEQUENCE "public"."upload_file_id_seq"
-OWNED BY "public"."upload_file"."id";
-SELECT setval('"public"."upload_file_id_seq"', 3, false);
-ALTER SEQUENCE "public"."upload_file_morph_id_seq"
-OWNED BY "public"."upload_file_morph"."id";
-SELECT setval('"public"."upload_file_morph_id_seq"', 3, false);
-ALTER SEQUENCE "public"."users-permissions_permission_id_seq"
-OWNED BY "public"."users-permissions_permission"."id";
-SELECT setval('"public"."users-permissions_permission_id_seq"', 366, true);
-ALTER SEQUENCE "public"."users-permissions_role_id_seq"
-OWNED BY "public"."users-permissions_role"."id";
-SELECT setval('"public"."users-permissions_role_id_seq"', 6, true);
-ALTER SEQUENCE "public"."users-permissions_user_id_seq"
-OWNED BY "public"."users-permissions_user"."id";
-SELECT setval('"public"."users-permissions_user_id_seq"', 3, false);
+OWNED BY "public"."transfer_log"."id";
+SELECT setval('"public"."transfer_logs_id_seq"', 3, false);
 
 -- ----------------------------
--- Primary Key structure for table account_action_logs
+-- Primary Key structure for table account_log
 -- ----------------------------
-ALTER TABLE "public"."account_action_logs" ADD CONSTRAINT "account_action_log_details_pkey" PRIMARY KEY ("id");
+ALTER TABLE "public"."account_log" ADD CONSTRAINT "account_action_log_details_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
--- Primary Key structure for table admin_accounts
+-- Primary Key structure for table admin
 -- ----------------------------
-ALTER TABLE "public"."admin_accounts" ADD CONSTRAINT "admin_accounts_pkey" PRIMARY KEY ("id");
+ALTER TABLE "public"."admin" ADD CONSTRAINT "admin_accounts_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
--- Primary Key structure for table banking
+-- Primary Key structure for table bank
 -- ----------------------------
-ALTER TABLE "public"."banking" ADD CONSTRAINT "banking_pkey" PRIMARY KEY ("id");
+ALTER TABLE "public"."bank" ADD CONSTRAINT "banking_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
--- Primary Key structure for table core_store
+-- Primary Key structure for table currency_unit
 -- ----------------------------
-ALTER TABLE "public"."core_store" ADD CONSTRAINT "core_store_pkey" PRIMARY KEY ("id");
+ALTER TABLE "public"."currency_unit" ADD CONSTRAINT "currency_units_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
--- Primary Key structure for table currency_units
+-- Primary Key structure for table customer
 -- ----------------------------
-ALTER TABLE "public"."currency_units" ADD CONSTRAINT "currency_units_pkey" PRIMARY KEY ("id");
+ALTER TABLE "public"."customer" ADD CONSTRAINT "customer_accounts_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
--- Primary Key structure for table customer_accounts
+-- Primary Key structure for table customer_info
 -- ----------------------------
-ALTER TABLE "public"."customer_accounts" ADD CONSTRAINT "customer_accounts_pkey" PRIMARY KEY ("id");
+ALTER TABLE "public"."customer_info" ADD CONSTRAINT "customer_infor_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
--- Primary Key structure for table customer_identification
+-- Primary Key structure for table identification
 -- ----------------------------
-ALTER TABLE "public"."customer_identification" ADD CONSTRAINT "customer_identification_pkey" PRIMARY KEY ("id");
-
--- ----------------------------
--- Primary Key structure for table customer_infor
--- ----------------------------
-ALTER TABLE "public"."customer_infor" ADD CONSTRAINT "customer_infor_pkey" PRIMARY KEY ("id");
-
--- ----------------------------
--- Primary Key structure for table identification_card
--- ----------------------------
-ALTER TABLE "public"."identification_card" ADD CONSTRAINT "identity_card_pkey" PRIMARY KEY ("id");
+ALTER TABLE "public"."identification" ADD CONSTRAINT "customer_identification_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
 -- Primary Key structure for table identification_type
@@ -747,14 +591,19 @@ ALTER TABLE "public"."identification_card" ADD CONSTRAINT "identity_card_pkey" P
 ALTER TABLE "public"."identification_type" ADD CONSTRAINT "identification_type_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
+-- Primary Key structure for table identity_card
+-- ----------------------------
+ALTER TABLE "public"."identity_card" ADD CONSTRAINT "identity_card_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
 -- Primary Key structure for table interest_rate
 -- ----------------------------
 ALTER TABLE "public"."interest_rate" ADD CONSTRAINT "interest_rate_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
--- Primary Key structure for table saving_account_infor
+-- Primary Key structure for table spend_account
 -- ----------------------------
-ALTER TABLE "public"."saving_account_infor" ADD CONSTRAINT "saving_account_infor_pkey" PRIMARY KEY ("id");
+ALTER TABLE "public"."spend_account" ADD CONSTRAINT "spend_account_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
 -- Primary Key structure for table spend_account_type
@@ -762,56 +611,11 @@ ALTER TABLE "public"."saving_account_infor" ADD CONSTRAINT "saving_account_infor
 ALTER TABLE "public"."spend_account_type" ADD CONSTRAINT "spend_account_type_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
--- Uniques structure for table strapi_administrator
+-- Primary Key structure for table term_deposit
 -- ----------------------------
-ALTER TABLE "public"."strapi_administrator" ADD CONSTRAINT "strapi_administrator_username_unique" UNIQUE ("username");
+ALTER TABLE "public"."term_deposit" ADD CONSTRAINT "saving_account_infor_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
--- Primary Key structure for table strapi_administrator
+-- Primary Key structure for table transaction_type
 -- ----------------------------
-ALTER TABLE "public"."strapi_administrator" ADD CONSTRAINT "strapi_administrator_pkey" PRIMARY KEY ("id");
-
--- ----------------------------
--- Primary Key structure for table strapi_webhooks
--- ----------------------------
-ALTER TABLE "public"."strapi_webhooks" ADD CONSTRAINT "strapi_webhooks_pkey" PRIMARY KEY ("id");
-
--- ----------------------------
--- Primary Key structure for table transaction_types
--- ----------------------------
-ALTER TABLE "public"."transaction_types" ADD CONSTRAINT "transaction_types_pkey" PRIMARY KEY ("id");
-
--- ----------------------------
--- Primary Key structure for table upload_file
--- ----------------------------
-ALTER TABLE "public"."upload_file" ADD CONSTRAINT "upload_file_pkey" PRIMARY KEY ("id");
-
--- ----------------------------
--- Primary Key structure for table upload_file_morph
--- ----------------------------
-ALTER TABLE "public"."upload_file_morph" ADD CONSTRAINT "upload_file_morph_pkey" PRIMARY KEY ("id");
-
--- ----------------------------
--- Primary Key structure for table users-permissions_permission
--- ----------------------------
-ALTER TABLE "public"."users-permissions_permission" ADD CONSTRAINT "users-permissions_permission_pkey" PRIMARY KEY ("id");
-
--- ----------------------------
--- Uniques structure for table users-permissions_role
--- ----------------------------
-ALTER TABLE "public"."users-permissions_role" ADD CONSTRAINT "users-permissions_role_type_unique" UNIQUE ("type");
-
--- ----------------------------
--- Primary Key structure for table users-permissions_role
--- ----------------------------
-ALTER TABLE "public"."users-permissions_role" ADD CONSTRAINT "users-permissions_role_pkey" PRIMARY KEY ("id");
-
--- ----------------------------
--- Uniques structure for table users-permissions_user
--- ----------------------------
-ALTER TABLE "public"."users-permissions_user" ADD CONSTRAINT "users-permissions_user_username_unique" UNIQUE ("username");
-
--- ----------------------------
--- Primary Key structure for table users-permissions_user
--- ----------------------------
-ALTER TABLE "public"."users-permissions_user" ADD CONSTRAINT "users-permissions_user_pkey" PRIMARY KEY ("id");
+ALTER TABLE "public"."transaction_type" ADD CONSTRAINT "transaction_types_pkey" PRIMARY KEY ("id");
