@@ -1,18 +1,18 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localhost_5432
+ Source Server         : banking
  Source Server Type    : PostgreSQL
- Source Server Version : 120001
+ Source Server Version : 120003
  Source Host           : localhost:5432
- Source Catalog        : banking
+ Source Catalog        : postgres
  Source Schema         : public
 
  Target Server Type    : PostgreSQL
- Target Server Version : 120001
+ Target Server Version : 120003
  File Encoding         : 65001
 
- Date: 25/06/2020 15:07:29
+ Date: 27/06/2020 19:47:22
 */
 
 
@@ -26,7 +26,6 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-ALTER SEQUENCE "public"."account_action_log_details_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for admin_accounts_id_seq1
@@ -38,7 +37,6 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-ALTER SEQUENCE "public"."admin_accounts_id_seq1" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for banking_id_seq
@@ -50,7 +48,6 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-ALTER SEQUENCE "public"."banking_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for currency_units_id_seq
@@ -62,7 +59,6 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-ALTER SEQUENCE "public"."currency_units_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for customer_accounts_id_seq
@@ -74,7 +70,6 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-ALTER SEQUENCE "public"."customer_accounts_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for customer_infor_id_seq
@@ -86,7 +81,6 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-ALTER SEQUENCE "public"."customer_infor_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for identification_type_id_seq
@@ -98,7 +92,6 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-ALTER SEQUENCE "public"."identification_type_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for identity_card_id_seq
@@ -110,7 +103,6 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-ALTER SEQUENCE "public"."identity_card_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for interest_rate_id_seq
@@ -122,7 +114,6 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-ALTER SEQUENCE "public"."interest_rate_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for saving_account_infor_id_seq
@@ -134,7 +125,6 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-ALTER SEQUENCE "public"."saving_account_infor_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for spend_account_infor_id_seq
@@ -146,7 +136,6 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-ALTER SEQUENCE "public"."spend_account_infor_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for spend_account_logs_id_seq
@@ -158,7 +147,6 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-ALTER SEQUENCE "public"."spend_account_logs_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for spend_account_type_id_seq
@@ -170,7 +158,6 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-ALTER SEQUENCE "public"."spend_account_type_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for status_type_id_seq
@@ -182,7 +169,6 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-ALTER SEQUENCE "public"."status_type_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for transaction_types_id_seq
@@ -194,7 +180,6 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-ALTER SEQUENCE "public"."transaction_types_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Sequence structure for transfer_logs_id_seq
@@ -206,7 +191,6 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-ALTER SEQUENCE "public"."transfer_logs_id_seq" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for account_log
@@ -216,11 +200,9 @@ CREATE TABLE "public"."account_log" (
   "id" int4 NOT NULL DEFAULT nextval('account_action_log_details_id_seq'::regclass),
   "action" varchar(255) COLLATE "pg_catalog"."default",
   "content" varchar(255) COLLATE "pg_catalog"."default",
-  "status" int4,
-  "account_id" int4
+  "status" int4
 )
 ;
-ALTER TABLE "public"."account_log" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for admin
@@ -234,7 +216,6 @@ CREATE TABLE "public"."admin" (
   "updated_at" timestamptz(6)
 )
 ;
-ALTER TABLE "public"."admin" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for bank
@@ -245,7 +226,6 @@ CREATE TABLE "public"."bank" (
   "id" int4 NOT NULL DEFAULT nextval('banking_id_seq'::regclass)
 )
 ;
-ALTER TABLE "public"."bank" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for currency_unit
@@ -256,7 +236,6 @@ CREATE TABLE "public"."currency_unit" (
   "id" int4 NOT NULL DEFAULT nextval('currency_units_id_seq'::regclass)
 )
 ;
-ALTER TABLE "public"."currency_unit" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for customer
@@ -269,10 +248,11 @@ CREATE TABLE "public"."customer" (
   "status" int4,
   "created_at" timestamptz(6),
   "updated_at" timestamptz(6),
-  "id" int4 NOT NULL DEFAULT nextval('customer_accounts_id_seq'::regclass)
+  "id" int4 NOT NULL DEFAULT nextval('customer_accounts_id_seq'::regclass),
+  "customer_infor" int4,
+  "logs" int4
 )
 ;
-ALTER TABLE "public"."customer" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for customer_info
@@ -289,7 +269,6 @@ CREATE TABLE "public"."customer_info" (
   "date_of_birth" date
 )
 ;
-ALTER TABLE "public"."customer_info" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for identification
@@ -297,12 +276,10 @@ ALTER TABLE "public"."customer_info" OWNER TO "postgres";
 DROP TABLE IF EXISTS "public"."identification";
 CREATE TABLE "public"."identification" (
   "id" int4 NOT NULL,
-  "customer_id" int4,
   "identification_type" int4,
   "identification_detail" int4
 )
 ;
-ALTER TABLE "public"."identification" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for identification_type
@@ -313,7 +290,6 @@ CREATE TABLE "public"."identification_type" (
   "id" int4 NOT NULL DEFAULT nextval('identification_type_id_seq'::regclass)
 )
 ;
-ALTER TABLE "public"."identification_type" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for identity_card
@@ -329,7 +305,6 @@ CREATE TABLE "public"."identity_card" (
   "type" int4
 )
 ;
-ALTER TABLE "public"."identity_card" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for interest_rate
@@ -341,7 +316,6 @@ CREATE TABLE "public"."interest_rate" (
   "id" int4 NOT NULL DEFAULT nextval('interest_rate_id_seq'::regclass)
 )
 ;
-ALTER TABLE "public"."interest_rate" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for spend_account
@@ -351,15 +325,15 @@ CREATE TABLE "public"."spend_account" (
   "account_id" int4,
   "currency_unit_id" int4,
   "balance" float8,
-  "created_date" date,
   "closed_date" date,
   "status" int4,
   "id" int4 NOT NULL DEFAULT nextval('spend_account_infor_id_seq'::regclass),
   "type" int4,
-  "card_number" varchar(32) COLLATE "pg_catalog"."default"
+  "card_number" varchar(32) COLLATE "pg_catalog"."default",
+  "logs" int4,
+  "term_deposit_id" int4
 )
 ;
-ALTER TABLE "public"."spend_account" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for spend_account_type
@@ -372,7 +346,6 @@ CREATE TABLE "public"."spend_account_type" (
   "limited_amount_per_day" float4
 )
 ;
-ALTER TABLE "public"."spend_account_type" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for status_type
@@ -383,7 +356,6 @@ CREATE TABLE "public"."status_type" (
   "id" int4 NOT NULL DEFAULT nextval('status_type_id_seq'::regclass)
 )
 ;
-ALTER TABLE "public"."status_type" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for term_deposit
@@ -392,26 +364,23 @@ DROP TABLE IF EXISTS "public"."term_deposit";
 CREATE TABLE "public"."term_deposit" (
   "interest_rate_id" int4,
   "id" int4 NOT NULL DEFAULT nextval('saving_account_infor_id_seq'::regclass),
-  "spend_account_id" int4,
   "maturity_date" date,
   "interest_money" float4
 )
 ;
-ALTER TABLE "public"."term_deposit" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for transaction_log
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."transaction_log";
 CREATE TABLE "public"."transaction_log" (
-  "account_id" int4,
   "transaction_type" int4,
   "id" int4 NOT NULL DEFAULT nextval('spend_account_logs_id_seq'::regclass),
   "amount" float4,
-  "status" int4
+  "status" int4,
+  "log_detail" int4
 )
 ;
-ALTER TABLE "public"."transaction_log" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for transaction_type
@@ -422,133 +391,70 @@ CREATE TABLE "public"."transaction_type" (
   "type" varchar(255) COLLATE "pg_catalog"."default"
 )
 ;
-ALTER TABLE "public"."transaction_type" OWNER TO "postgres";
 
 -- ----------------------------
 -- Table structure for transfer_log
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."transfer_log";
 CREATE TABLE "public"."transfer_log" (
-  "transaction_log_id" int4,
   "beneficiary_account" varchar(255) COLLATE "pg_catalog"."default",
   "remark" varchar(255) COLLATE "pg_catalog"."default",
   "beneficiary_bank" varchar(255) COLLATE "pg_catalog"."default",
   "id" int4 NOT NULL DEFAULT nextval('transfer_logs_id_seq'::regclass)
 )
 ;
-ALTER TABLE "public"."transfer_log" OWNER TO "postgres";
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."account_action_log_details_id_seq"
 OWNED BY "public"."account_log"."id";
-SELECT setval('"public"."account_action_log_details_id_seq"', 3, false);
-
--- ----------------------------
--- Alter sequences owned by
--- ----------------------------
+SELECT setval('"public"."account_action_log_details_id_seq"', 4, false);
 ALTER SEQUENCE "public"."admin_accounts_id_seq1"
 OWNED BY "public"."admin"."id";
-SELECT setval('"public"."admin_accounts_id_seq1"', 3, true);
-
--- ----------------------------
--- Alter sequences owned by
--- ----------------------------
+SELECT setval('"public"."admin_accounts_id_seq1"', 4, true);
 ALTER SEQUENCE "public"."banking_id_seq"
 OWNED BY "public"."bank"."id";
-SELECT setval('"public"."banking_id_seq"', 4, false);
-
--- ----------------------------
--- Alter sequences owned by
--- ----------------------------
+SELECT setval('"public"."banking_id_seq"', 5, false);
 ALTER SEQUENCE "public"."currency_units_id_seq"
 OWNED BY "public"."currency_unit"."id";
-SELECT setval('"public"."currency_units_id_seq"', 3, false);
-
--- ----------------------------
--- Alter sequences owned by
--- ----------------------------
+SELECT setval('"public"."currency_units_id_seq"', 4, false);
 ALTER SEQUENCE "public"."customer_accounts_id_seq"
 OWNED BY "public"."customer"."id";
-SELECT setval('"public"."customer_accounts_id_seq"', 3, false);
-
--- ----------------------------
--- Alter sequences owned by
--- ----------------------------
+SELECT setval('"public"."customer_accounts_id_seq"', 4, false);
 ALTER SEQUENCE "public"."customer_infor_id_seq"
 OWNED BY "public"."customer_info"."id";
-SELECT setval('"public"."customer_infor_id_seq"', 4, false);
-
--- ----------------------------
--- Alter sequences owned by
--- ----------------------------
+SELECT setval('"public"."customer_infor_id_seq"', 5, false);
 ALTER SEQUENCE "public"."identification_type_id_seq"
 OWNED BY "public"."identification_type"."id";
-SELECT setval('"public"."identification_type_id_seq"', 4, false);
-
--- ----------------------------
--- Alter sequences owned by
--- ----------------------------
+SELECT setval('"public"."identification_type_id_seq"', 5, false);
 ALTER SEQUENCE "public"."identity_card_id_seq"
 OWNED BY "public"."identity_card"."id";
-SELECT setval('"public"."identity_card_id_seq"', 4, false);
-
--- ----------------------------
--- Alter sequences owned by
--- ----------------------------
+SELECT setval('"public"."identity_card_id_seq"', 5, false);
 ALTER SEQUENCE "public"."interest_rate_id_seq"
 OWNED BY "public"."interest_rate"."id";
-SELECT setval('"public"."interest_rate_id_seq"', 4, false);
-
--- ----------------------------
--- Alter sequences owned by
--- ----------------------------
+SELECT setval('"public"."interest_rate_id_seq"', 5, false);
 ALTER SEQUENCE "public"."saving_account_infor_id_seq"
 OWNED BY "public"."term_deposit"."id";
-SELECT setval('"public"."saving_account_infor_id_seq"', 4, false);
-
--- ----------------------------
--- Alter sequences owned by
--- ----------------------------
+SELECT setval('"public"."saving_account_infor_id_seq"', 5, false);
 ALTER SEQUENCE "public"."spend_account_infor_id_seq"
 OWNED BY "public"."spend_account"."id";
-SELECT setval('"public"."spend_account_infor_id_seq"', 3, false);
-
--- ----------------------------
--- Alter sequences owned by
--- ----------------------------
+SELECT setval('"public"."spend_account_infor_id_seq"', 4, false);
 ALTER SEQUENCE "public"."spend_account_logs_id_seq"
 OWNED BY "public"."transaction_log"."id";
-SELECT setval('"public"."spend_account_logs_id_seq"', 3, false);
-
--- ----------------------------
--- Alter sequences owned by
--- ----------------------------
+SELECT setval('"public"."spend_account_logs_id_seq"', 4, false);
 ALTER SEQUENCE "public"."spend_account_type_id_seq"
 OWNED BY "public"."spend_account_type"."id";
-SELECT setval('"public"."spend_account_type_id_seq"', 3, false);
-
--- ----------------------------
--- Alter sequences owned by
--- ----------------------------
+SELECT setval('"public"."spend_account_type_id_seq"', 4, false);
 ALTER SEQUENCE "public"."status_type_id_seq"
 OWNED BY "public"."status_type"."id";
-SELECT setval('"public"."status_type_id_seq"', 3, false);
-
--- ----------------------------
--- Alter sequences owned by
--- ----------------------------
+SELECT setval('"public"."status_type_id_seq"', 4, false);
 ALTER SEQUENCE "public"."transaction_types_id_seq"
 OWNED BY "public"."transaction_type"."id";
-SELECT setval('"public"."transaction_types_id_seq"', 3, false);
-
--- ----------------------------
--- Alter sequences owned by
--- ----------------------------
+SELECT setval('"public"."transaction_types_id_seq"', 4, false);
 ALTER SEQUENCE "public"."transfer_logs_id_seq"
 OWNED BY "public"."transfer_log"."id";
-SELECT setval('"public"."transfer_logs_id_seq"', 3, false);
+SELECT setval('"public"."transfer_logs_id_seq"', 4, false);
 
 -- ----------------------------
 -- Primary Key structure for table account_log
