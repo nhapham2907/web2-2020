@@ -12,7 +12,7 @@
  Target Server Version : 120003
  File Encoding         : 65001
 
- Date: 27/06/2020 19:47:22
+ Date: 27/06/2020 20:24:36
 */
 
 
@@ -200,7 +200,8 @@ CREATE TABLE "public"."account_log" (
   "id" int4 NOT NULL DEFAULT nextval('account_action_log_details_id_seq'::regclass),
   "action" varchar(255) COLLATE "pg_catalog"."default",
   "content" varchar(255) COLLATE "pg_catalog"."default",
-  "status" int4
+  "status" int4,
+  "account_id" int4
 )
 ;
 
@@ -249,8 +250,7 @@ CREATE TABLE "public"."customer" (
   "created_at" timestamptz(6),
   "updated_at" timestamptz(6),
   "id" int4 NOT NULL DEFAULT nextval('customer_accounts_id_seq'::regclass),
-  "customer_infor" int4,
-  "logs" int4
+  "customer_infor" int4
 )
 ;
 
@@ -330,7 +330,6 @@ CREATE TABLE "public"."spend_account" (
   "id" int4 NOT NULL DEFAULT nextval('spend_account_infor_id_seq'::regclass),
   "type" int4,
   "card_number" varchar(32) COLLATE "pg_catalog"."default",
-  "logs" int4,
   "term_deposit_id" int4
 )
 ;
@@ -378,7 +377,8 @@ CREATE TABLE "public"."transaction_log" (
   "id" int4 NOT NULL DEFAULT nextval('spend_account_logs_id_seq'::regclass),
   "amount" float4,
   "status" int4,
-  "log_detail" int4
+  "log_detail" int4,
+  "account_id" int4
 )
 ;
 
